@@ -17,7 +17,25 @@ class UserController extends Controller
     public function index()
     {
         //
-        session(['inputFailed' => 'Data Gagal Di Masukkan!']);
+        if (request('search')) {
+
+            $users = User::where('username', 'like', '%' . request('search') . '%')->latest()->get();
+
+            if (count($users) != 0) {
+                return view('dashboard.user.index', [
+                    'users' => $users,
+                ]);
+            } else {
+                session(['resiNotFound' => 'Resi tidak ditemukan!']);
+                return view('dashboard.user.index', [
+                    'users' => $users,
+                ]);
+            }
+        } else {
+            return view('dashboard.user.index', [
+                'users' => User::get(),
+            ]);
+        }
         return view('dashboard.user.index', [
             'users' => User::get(),
         ]);

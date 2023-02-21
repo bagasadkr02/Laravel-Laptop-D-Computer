@@ -16,9 +16,25 @@ class TokoController extends Controller
     public function index()
     {
         //
-        return view('dashboard.toko.index', [
-            'tokos' => Toko::get(),
-        ]);
+        if (request('search')) {
+
+            $tokos = Toko::where('address', 'like', '%' . request('search') . '%')->latest()->get();
+
+            if (count($tokos) != 0) {
+                return view('dashboard.toko.index', [
+                    'tokos' => $tokos,
+                ]);
+            } else {
+                session(['resiNotFound' => 'Resi tidak ditemukan!']);
+                return view('dashboard.toko.index', [
+                    'tokos' => $tokos,
+                ]);
+            }
+        } else {
+            return view('dashboard.toko.index', [
+                'tokos' => Toko::get(),
+            ]);
+        }
     }
     
 
