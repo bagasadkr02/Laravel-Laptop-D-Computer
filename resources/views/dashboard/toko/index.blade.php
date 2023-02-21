@@ -41,8 +41,6 @@
                 <td>{{ $laptop->address }}</td>
                 <td>{{ $laptop->phone_number }}</td>
                 <td>
-                    <a href="/dashboard/toko/{{ $laptop->id}}" class="badge
-                    bg-info"><span data-feather="eye"></span></a>
                     <a href="/dashboard/toko/{{ $laptop->id }}/edit" class="badge bg-warning"><span
                             data-feather="edit"></ span></a>
                     <form action="/dashboard/toko/{{ $laptop->id }}" method='post' class="d-inline">
