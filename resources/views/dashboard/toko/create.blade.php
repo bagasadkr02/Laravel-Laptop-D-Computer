@@ -28,6 +28,7 @@ align-items-center pt-3pb-2mb-3border-bottom">
             <label for="phone_number" class="form-label">No Telp</label>
             <input type="text" class="form-control" id="phone_number" name="phone_number">
         </div>
+        
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

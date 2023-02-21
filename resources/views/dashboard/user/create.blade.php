@@ -24,6 +24,7 @@ align-items-center pt-3pb-2mb-3border-bottom">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" name="password">
         </div>
+        
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

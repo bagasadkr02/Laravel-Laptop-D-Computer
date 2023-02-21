@@ -54,7 +54,7 @@ Route::get('/dashboard/admin', function () {
 // * ADMIN 2 == ADMIN TOKO  only can do crud toko
 
 
-Route::group(['middleware' => ['auth','HasRole:0']], function(){
+Route::group(['middleware' => ['auth','HasRole:1']], function(){
     Route::resource('/dashboard/user', UserController::class);
 });
 
